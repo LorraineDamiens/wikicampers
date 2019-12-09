@@ -61,7 +61,7 @@ class ContactController extends AbstractController
 
             $message2 = (new \Swift_Message('Formulaire de contact'))
                 ->setFrom('job@wikicampers.fr')
-                ->setTo('lorrainedams@me.com')
+                ->setTo('job@wikicampers.fr')
                 ->setBody($this->renderView('email/wcemail.html.twig',array('name' => $name, 'firstname' => $firstname, 'email' => $email, 'description' => $description)),'text/plain');
 
             $mailer->send($message2);
