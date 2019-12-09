@@ -37,20 +37,35 @@ class ContactController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
+            $name = $form['name']->getData();
+            $firstname = $form['firstname']->getData();
+            $email = $form['email']->getData();
+            $description = $form['description']->getData();
+
+
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
             $message = (new \Swift_Message('Bienvenue chez WikiCampers'))
                 ->setFrom('mercibien8@gmail.com')
-                ->setTo('mercibien8@gmail.com')
+                ->setTo($email)
                 ->setBody(
                     $this->renderView(
-                        'email/contactemail.html.twig'
-
+                        'email/contactemail.html.twig',array('firstname' => $firstname)
                     ),
                     'text/html'
                 );
             $mailer->send($message);
+
+            $message2 = (new \Swift_Message('Nouvelle inscription'))
+                ->setFrom('mercibien8@gmail.com')
+                ->setTo('lorrainedams@me.com')
+                ->setBody($this->renderView('email/wcemail.html.twig',array('name' => $name, 'firstname' => $firstname, 'email' => $email, 'description' => $description)),'text/plain');
+
+            $mailer->send($message2);
+
 
             return $this->redirectToRoute('contact_index');
             }
