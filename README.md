@@ -23,7 +23,7 @@ Pour aller plus loin (facultatif) :
 
 ## Outils utilisés
 
-Symfony 4, SwiftMailer, MySql.
+Symfony 4, SwiftMailer, MySql, Bootstrap.
 
 ## Démarche technique
 
