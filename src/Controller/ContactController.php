@@ -49,7 +49,7 @@ class ContactController extends AbstractController
             $entityManager->persist($contact);
             $entityManager->flush();
             $message = (new \Swift_Message('Bienvenue chez WikiCampers'))
-                ->setFrom('mercibien8@gmail.com')
+                ->setFrom('job@wikicampers.fr')
                 ->setTo($email)
                 ->setBody(
                     $this->renderView(
@@ -59,15 +59,15 @@ class ContactController extends AbstractController
                 );
             $mailer->send($message);
 
-            $message2 = (new \Swift_Message('Nouvelle inscription'))
-                ->setFrom('mercibien8@gmail.com')
+            $message2 = (new \Swift_Message('Formulaire de contact'))
+                ->setFrom('job@wikicampers.fr')
                 ->setTo('lorrainedams@me.com')
                 ->setBody($this->renderView('email/wcemail.html.twig',array('name' => $name, 'firstname' => $firstname, 'email' => $email, 'description' => $description)),'text/plain');
 
             $mailer->send($message2);
 
 
-            return $this->redirectToRoute('contact_index');
+                return $this->redirectToRoute('success');
             }
 
             return $this->render('contact/new.html.twig', [
@@ -75,5 +75,13 @@ class ContactController extends AbstractController
                 'form' => $form->createView(),
             ]);
 
+        }
+
+        /**
+         * @Route("/success", name="success")
+         */
+        public function success()
+        {
+            return $this->render('contact/redirection.html.twig');
         }
 }

@@ -28,9 +28,19 @@ h3 {
 .btn{
     background-color: #29539b;
     color: white;
+    margin-bottom: 2em;
 }
 
 footer{
     background-color: #29539b;
+    color: white;
+}
+
+.footer {
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background:  #29539b;
     color: white;
 }
