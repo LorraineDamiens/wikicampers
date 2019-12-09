@@ -27,6 +27,7 @@ Symfony 4, SwiftMailer, MySql, Bootstrap 4.
 
 Après clonage ou téléchargement du fichier faire:
 - composer install
+- yarn install
 - yarn encore dev
 
 ## Démarche technique
