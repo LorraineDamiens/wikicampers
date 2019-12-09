@@ -25,6 +25,10 @@ Pour aller plus loin (facultatif) :
 
 Symfony 4, SwiftMailer, MySql, Bootstrap 4.
 
+Après clonage ou téléchargement du fichier faire:
+- composer install
+- yarn encore dev
+
 ## Démarche technique
 
 L'utilisation des bundles ayant été fortement restreinte à partir de la version 4 de Symfony, il n'est plus possible de créer un ContactBundle.
