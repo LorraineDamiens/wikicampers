@@ -3,7 +3,7 @@
 {% block title %}Contact index{% endblock %}
 
 {% block body %}
-    <h1 class="text-center">Liste des contacts</h1>
+    <h3 class="text-center">Liste des contacts</h3>
 
 <div class="container  table-responsive">
 
@@ -15,7 +15,6 @@
                 <th>Firstname</th>
                 <th>Email</th>
                 <th>Description</th>
-                <th>actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,10 +26,7 @@
                 <td>{{ contact.firstname }}</td>
                 <td>{{ contact.email }}</td>
                 <td>{{ contact.description }}</td>
-                <td>
-                    <a href="{{ path('contact_show', {'id': contact.id}) }}">show</a>
-                    <a href="{{ path('contact_edit', {'id': contact.id}) }}">edit</a>
-                </td>
+
             </tr>
         {% else %}
             <tr>
@@ -41,7 +37,7 @@
     </table>
 </div>
 
-    <a href="{{ path('contact_new') }}">Créer nouveau</a>
+    <a href="{{ path('contact_new') }}"type="button" class="btn ml-5 mt-5">Créer nouveau</a>
 
 
 {% endblock %}
